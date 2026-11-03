@@ -43,6 +43,7 @@ const ALLOW_ZOOM   = true;         // allow mouse-wheel zoom (inside Google Site
 const POINT_SIZE   = 1;            // point size multiplier: larger = denser look, smaller = sparser
 const Z_UP         = true;         // true if the scanned model lies on its side (typical for E57/LAS)
 const TILT         = 0.25;         // initial camera tilt from above, in radians
+const ZOOM         = 1.2;          // initial zoom: 1 = whole model with margin, 1.2 = 20% closer, 1.5 = 50% closer
 // ----------------------------------------------------
 
 const status = document.getElementById('status');
@@ -108,7 +109,7 @@ new PLYLoader().load(
     const fov = THREE.MathUtils.degToRad(camera.fov);
     const fitH = radius / Math.sin(fov / 2);
     const fitW = fitH / Math.min(1, camera.aspect);   // move further back on narrow screens
-    const dist = Math.max(fitH, fitW) * 1.05;
+    const dist = (Math.max(fitH, fitW) * 1.05) / ZOOM;
     camera.position.set(0, Math.sin(TILT) * dist, Math.cos(TILT) * dist);
     camera.near = radius / 200;
     camera.far = radius * 40;
