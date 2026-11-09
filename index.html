@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Point Cloud</title>
 <style>
-  html, body { margin: 0; height: 100%; overflow: hidden; background: #111418; }
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #152033; }
   canvas { display: block; width: 100%; height: 100%; touch-action: none; cursor: grab; }
   canvas:active { cursor: grabbing; }
   #status {
@@ -35,7 +35,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 // ---------- Settings (feel free to change) ----------
 const FILE         = 'model.ply';  // name of the point cloud file
-const BACKGROUND   = 0x111418;     // background color
+const BACKGROUND   = 0x152033;     // background color
 const SPEED        = 1.5;          // auto-rotation speed (2 = one full turn in 30 seconds)
 const RESUME_AFTER = 3000;         // milliseconds after the last touch before auto-rotation resumes (0 = never resume)
 const USER_CONTROL = true;         // true = rotate and zoom with mouse/fingers, false = auto-rotation only
@@ -43,8 +43,8 @@ const ALLOW_ZOOM   = true;         // allow mouse-wheel zoom (inside Google Site
 const POINT_SIZE   = 1;            // point size multiplier: larger = denser look, smaller = sparser
 const Z_UP         = true;         // true if the scanned model lies on its side (typical for E57/LAS)
 const TILT         = 0.25;         // initial camera tilt from above, in radians
-const ZOOM         = 1.6;          // initial zoom: 1 = whole model with margin, 1.2 = 20% closer, 1.5 = 50% closer
-const SHIFT_UP     = 0.12;         // move the model up in the frame, as a fraction of frame height (0.06 = 6%, 0 = centered)
+const ZOOM         = 1.2;          // initial zoom: 1 = whole model with margin, 1.2 = 20% closer, 1.5 = 50% closer
+const SHIFT_UP     = 0.06;         // move the model up in the frame, as a fraction of frame height (0.06 = 6%, 0 = centered)
 // ----------------------------------------------------
 
 const status = document.getElementById('status');
